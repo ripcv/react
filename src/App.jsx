@@ -1,9 +1,10 @@
-import NavBarComponent from './componentes/NavBarComponent/NavBarComponent';
-
 //Estilos
 import './App.css'
-// Importación CSS Bootstrap
+// Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+//Componentes
+import NavBarComponent from './componentes/NavBarComponent/NavBarComponent';
 import ItemListContainer from './componentes/ItemListContainer/ItemListContainer';
 
 
