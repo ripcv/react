@@ -1,0 +1,126 @@
+/** Navegador y Header **/
+.nav-bar {
+  background-color: black;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+  flex-wrap: wrap;
+}
+.nav-bar ul {
+  padding: 10px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 0px;
+}
+.nav-bar ul li {
+  display: flex;
+  padding: 5px 0px;
+}
+.nav-bar ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 20px;
+}
+.nav-bar ul li a:hover {
+  font-size: 18px;
+  text-shadow: 0px 10px 10px white;
+}
+.nav-bar ul li .bg {
+  background-color: black;
+  --bs-dropdown-min-width: 8rem;
+  text-align: center;
+}
+.nav-bar .fa-bars {
+  display: none;
+}
+.nav-bar .logo {
+  height: 122px;
+}
+.nav-bar .logo img {
+  width: 150px;
+  margin: 10px;
+  padding: 5px;
+  object-fit: cover;
+}
+.nav-bar .carrito {
+  display: flex;
+  margin-right: 10px;
+  font-size: 24px;
+  padding: 5px;
+  margin-top: 5px;
+  align-items: center;
+}
+.nav-bar .carrito a, .nav-bar .carrito i {
+  color: white;
+  text-decoration: none;
+  margin: 5px;
+  font-size: 24px;
+}
+@media (max-width: 1200px) {
+  .nav-bar .fa-bars {
+    display: block;
+    margin: 10px;
+    font-size: 30px;
+    color: white;
+    order: -1;
+  }
+  .nav-bar .fa-bars:hover + ul {
+    left: 0;
+  }
+  .nav-bar ul {
+    position: fixed;
+    top: 0px;
+    left: -300px;
+    width: 250px;
+    height: 100vh;
+    background-color: rgb(5, 5, 5);
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    transition: 0.5s;
+  }
+  .nav-bar ul:hover {
+    left: 0;
+  }
+  .nav-bar ul li a {
+    color: rgba(255, 255, 255, 0.836);
+  }
+  .nav-bar ul .dropdown .bg {
+    --bs-dropdown-min-width: 6rem;
+  }
+  .nav-bar ul .dropdown .dropdown-menu.show {
+    border: 1px solid white;
+    inset: 0px auto auto 15px !important;
+    /* Se usa !Important para poder sobreescribir propiedad heredada de bootstrap*/
+  }
+  .nav-bar .carrito {
+    display: none;
+  }
+}
+@media (max-width: 915px) and (orientation: landscape) {
+  .nav-bar {
+    height: 90px;
+  }
+  .nav-bar .fa-bars {
+    position: relative;
+    top: -15px;
+  }
+  .nav-bar .fa-bars ul {
+    padding-top: 20px;
+  }
+  .nav-bar .fa-bars ul li {
+    height: 40px;
+    align-items: center;
+  }
+  .nav-bar .fa-bars .logo img {
+    margin: 0px;
+  }
+}
+
+/** Fin Navegador y Header **/
