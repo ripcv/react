@@ -1,6 +1,8 @@
-const ItemListContainer = () => {
+const ItemListContainer = (props) => {
   return (
-    <div style={{width: '100vw', height:'70vh'}}>Página y Tienda oficial de La Grande Armée</div>
+    <div style={{width: '100vw', height:'70vh'}}>
+      <h1>{props.greeting}</h1>
+      </div>
   )
 }
 

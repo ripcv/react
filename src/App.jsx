@@ -12,7 +12,7 @@ function App() {
 return(
   <div>
     <NavBarComponent/>
-    <ItemListContainer/>
+    <ItemListContainer greeting = {"Página y Tienda oficial de La Grande Armée"}/>
   </div>
 )
   
