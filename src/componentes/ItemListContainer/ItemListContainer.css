@@ -1,0 +1,106 @@
+/** Tienda **/
+
+.titulo__formato{
+  text-align: center;
+  margin: 30px 0px;
+  font-size: 34px;
+  text-shadow: 0px 1px 5px #FFFFFF;
+}
+
+.tienda {
+  background-image: linear-gradient(rgb(132, 97, 134), rgb(152, 59, 168));
+  min-height: 88vh;
+   margin-top: 121px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .tienda .producto {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  .tienda .producto .tarjeta-producto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 0 calc(25% - 40px);
+    height: 370px;
+    border: 2px solid black;
+    border-radius: 15px;
+    margin: 10px;
+    padding: 10px;
+    justify-content: space-around;
+    background-color: rgb(133, 54, 133);
+    position: relative;
+  }
+  .tienda .producto .tarjeta-producto img {
+    max-width: 100%;
+    height: 200px;
+    border: none;
+    border-radius: 15px;
+  }
+  .tienda .producto .tarjeta-producto img:hover {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: white;
+    border-radius: 15px;
+  }
+  .tienda .producto .tarjeta-producto h5 {
+    text-align: center;
+    margin-top: 5px;
+    font-weight: bold;
+  }
+  .tienda .producto .tarjeta-producto p {
+    padding: 0px 10px;
+    margin-bottom: 0;
+  }
+
+  .usd{
+    font-size: 16px;
+  }
+  @media (max-width: 1200px) {
+    .tienda .producto h5 {
+      font-size: 16px;
+    }
+    .tienda .producto p {
+      font-size: 14px;
+    }
+    .tienda .producto .tarjeta-producto {
+      width: calc(50% - 40px);
+      margin: 10px;
+    }
+  }
+  @media (max-width: 768px) {
+    .tienda {
+      margin: 20px;
+    }
+    .tienda .producto p {
+      display: none;
+    }
+    .tienda .producto .tarjeta-producto {
+      flex: 0 0 calc(50% - 30px);
+    }
+    .tienda .producto .tarjetas {
+      margin: 20px 0px;
+    }
+  }
+  @media (max-width: 557px) {
+    .tienda .producto {
+      gap: 5px;
+    }
+    .tienda .producto .tarjeta-producto {
+      margin: 5px;
+      flex: 0 0 calc(50% - 20px);
+      height: 300px;
+    }
+  }
+  
+  /** Fin Tienda **/
