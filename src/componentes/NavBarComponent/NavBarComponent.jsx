@@ -2,33 +2,33 @@ import 'bootstrap/dist/js/bootstrap.min.js'
 import './NavBarComponent.css'
 import logo from './NavBarLogo.png'
 import CartWidgetContainer from '../CartWidgetContainer/CartWidgetContainer';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
+const burgerbar = <FontAwesomeIcon icon={faBars} />;
 const NavBarComponent = () => {
 
     return (
         <nav className="nav-bar">
             <div className="logo">
-                <a href="../index.html">
-                    <img src={logo} alt="logo" />
-                </a>
+                <Link to={'/'}><img src={logo} alt="logo" /></Link>
             </div>
-            <i className="fa-solid fa-bars"></i>
+            {burgerbar}
             <ul>
-                <li> <a href="../index.html">Inicio</a></li>
-                <li> <a href="./conciertos.html">Conciertos</a></li>
-                <li> <a href="./discografia.html">Discografia</a></li>
-               <li className="dropdown">
-                  <a className="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                      aria-haspopup="true" aria-expanded="false">
-                      Multimedia
-                  </a>
-                  <div className="dropdown-menu bg" aria-labelledby="navbarDropdown">
-                      <a className="dropdown-item" href="./galeria.html">Galeria</a>
-                      <a className="dropdown-item" href="./videos.html">Videos</a>
-                  </div>
-              </li>
-                <li> <a href="./tienda.html">Tienda</a></li>
-                <li id="logout"> <a href="#" id="logout-link">Log-Out</a></li>
+                <li>  <Link to={'/'}>Inicio</Link></li>
+                <li>  <Link to={'/tienda'}>Tienda</Link></li>
+                {/* <li className="dropdown">
+                    <a className="dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Categorias
+                    </a>
+                    <div className="dropdown-menu bg" aria-labelledby="navbarDropdown">
+                        <Link to={'/category/producto.category'}> Categoria </Link>
+                        <a className="dropdown-item" href="./videos.html">Videos</a>
+                    </div>
+                </li> */}
+                <li id="logout"> <Link to={'/logout'}> Log-Out</Link></li>
             </ul>
 
             <CartWidgetContainer />
