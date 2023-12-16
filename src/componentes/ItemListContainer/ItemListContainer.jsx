@@ -1,25 +1,24 @@
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import { getExchangeRate } from "../../services/exchangeapi"
 
-
-const ItemListContainer = ({ productData }) => {
-  console.log(productData)
+const ItemListContainer = ({ productsData }) => {
+  const usd = getExchangeRate()
+  
+  console.log(productsData);
   return (
-    <div style={{ width: '100vw', height: '70vh' }}>
-      <div>
+
+    <div className="tarjetas">
+      <div className="producto" >
         {
-          productData.map(product => {
+          productsData.map(product => {
             return (
-              <div key={product.id}>
-                <Card style={{ width: '18rem' }}>
-                  <Card.Img variant="top" src={product.img} />
-                  <Card.Body>
-                    <Card.Title>{product.nombreProducto}</Card.Title>
-                    <div>Stock: {product.stock}</div>
-                    <div>Precio: {product.valor}</div>
-                    <Button variant="primary">Comprar</Button>
-                  </Card.Body>
-                </Card>
+                <div key={product.id}>
+                <div className="tarjeta-producto">
+                      <img src={`../../src/assets/images/tienda/${product.img}`} alt="" />
+                        <h5>{product.nombreProducto}</h5>
+                        <p>{product.descripcion}</p>
+                        <span>${product.valor}</span>
+                        <button type="button" className="boton-principal">Comprar</button>
+                    </div>
               </div>
             )
           })
