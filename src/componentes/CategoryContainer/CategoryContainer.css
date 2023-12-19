@@ -1,0 +1,22 @@
+.categorias {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+  }
+  
+  ul {
+    list-style: none; 
+    padding: 0; 
+    margin: 0;  
+    display: flex;  
+  }
+  
+  li a{
+    margin: 0 15px; 
+    color: rgb(28, 26, 26);
+  }
+
+  li a:hover{
+    color: rgb(118, 19, 19);
+    background-color: black;
+  }  
