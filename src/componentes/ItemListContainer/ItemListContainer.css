@@ -11,7 +11,7 @@
 .tienda {
   background-image: linear-gradient(rgb(132, 97, 134), rgb(152, 59, 168));
     min-height: 88vh;
-     margin-top: 121px;
+     margin-top: 121px !important;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -83,7 +83,7 @@
   }
   @media (max-width: 768px) {
     .tienda {
-      margin: 20px;
+      margin: 20px 0  20px 0;
     }
     .tienda .producto p {
       display: none;
