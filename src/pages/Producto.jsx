@@ -9,7 +9,9 @@ posible futura funcionalidad
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons"; */
 
-
+/**
+ * @description Renderiza producto por ID
+ */
 
 const Producto = () => {
     const { usd } = useExchange();

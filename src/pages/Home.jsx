@@ -2,7 +2,9 @@ import './Home.css'
 import { useGetProducts } from "../hooks/useProducts"
 import { Link } from 'react-router-dom';
 
-
+/**
+ * @description Se renderiza pagina de inicio.
+ */
 function Home() {
 
   const { productsData } = useGetProducts();
