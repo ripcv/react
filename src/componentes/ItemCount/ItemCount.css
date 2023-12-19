@@ -1,0 +1,15 @@
+
+.cantidad{
+    background-color: white;
+    width: 40px;
+}
+.btn-cantidad{
+    height: 40px;
+  }
+
+  .item-count{
+    display: flex;
+    flex-direction:  row;
+     align-self: center;
+    gap: 10px;
+  }
