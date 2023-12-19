@@ -1,15 +1,17 @@
-import ItemListContainer from "../componentes/ItemListContainer/ItemListContainer"
-import { useGetProducts } from "../hooks/useProducts"
+/* import { useGetProducts } from "../hooks/useProducts" */
+import Category from "./Categorias";
 
+
+/**
+ * @name Tienda
+ * @description Se renderiza pagina con los distintos productos
+ */
 function Tienda() {
 
-  const { productsData } = useGetProducts();
+  /* const { productsData } = useGetProducts(); */
 
   return (
-    <section className="tienda">
-      <h1 className="titulo__formato">Tienda Oficial La Grande Armée</h1>
-      <ItemListContainer productsData={productsData} />
-    </section>
+      <Category />
   )
 }
 

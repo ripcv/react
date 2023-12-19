@@ -1,11 +1,17 @@
 import { useParams } from "react-router-dom"
 import ItemListContainer from "../componentes/ItemListContainer/ItemListContainer"
-import { useGetProductsByCategory } from "../hooks/useProducts";
+import { useGetProducts, useGetProductsByCategory } from "../hooks/useProducts";
 
+/**
+ * @description Se renderizan Categorias y sus respectivos productos.
+ */
 function Category() {
 
+    const { pathname } = location;
     const {id} = useParams();
-  const { productsData } = useGetProductsByCategory(id);
+    const useProductsHook = pathname.includes("/categoria") ? useGetProductsByCategory : useGetProducts;
+
+    const { productsData } = useProductsHook(id);
 
   return (
     <section className="tienda">
