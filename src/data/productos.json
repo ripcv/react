@@ -32,7 +32,7 @@
         "descripcion": "Para llevar tus llaves con estilo",
         "valor": 5000,
         "stock": 40,
-        "categoria": "Accesorios",
+        "categoria": "Otro",
         "img": "llavero.jpg"
     },
     {
@@ -59,7 +59,7 @@
         "descripcion": "Lleva tus archivos siempre contigo",
         "valor": 5000,
         "stock": 50,
-        "categoria": "Electronica",
+        "categoria": "Otro",
         "img": "pendrive.jpg"
     },
     {
@@ -86,7 +86,7 @@
         "descripcion": "Personalizados con distintos diseños",
         "valor": 5000,
         "stock": 25,
-        "categoria": "",
+        "categoria": "Otro",
         "img": "tazon.jpg"
     },
     {
