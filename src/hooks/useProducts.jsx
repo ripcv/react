@@ -34,3 +34,18 @@ export const useGetProductsByCategory = (category) => {
 
 return  {productsData} 
 }
+
+export const useGetProductsByID = (id) =>{
+  const [productData, setProductData] = useState([]);
+  useEffect(() =>{
+    getProducts()
+    .then(response => {
+      setProductData(response.filter((prod) => prod.id == id));
+    })
+    .catch(error => {
+      console.log(error)
+    })
+   },[id])
+
+return  {productData} 
+}
