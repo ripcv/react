@@ -1,7 +1,6 @@
 import ItemListContainer from "../componentes/ItemListContainer/ItemListContainer"
 import { useGetProducts } from "../hooks/useProducts"
 
-
 function Tienda() {
 
   const { productsData } = useGetProducts();
