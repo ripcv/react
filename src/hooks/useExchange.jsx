@@ -9,7 +9,6 @@ export const useExchange = () => {
         getExchangeRate()
         .then((res) => {
           setUsd(res)
-          console.log(res)
         })
         .catch ((error) => {
           console.log(error)
