@@ -16,40 +16,29 @@ import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons"; *
 const Producto = () => {
     const { usd } = useExchange();
     const { id } = useParams();
-    const { productData } = useGetProductsByID(id)
+    const { productData } = useGetProductsByID("products",id)
 
 
     return (
 
         <div  className="product-page">
          
-            {
-              productData.map(product => {
-                
-                return (
-                    <div key={product.id} className="single-product" >
-                    <img className="product-imagen"src={`../../src/assets/images/tienda/${product.img}`} alt="" />
-                  {/*   
-                    posible futura funcionalidad
-                  <div className="control-product">
-                    <Link to={`/tienda/producto/${product.id-1}`}><FontAwesomeIcon icon={faArrowLeft} /></Link>
-                    <Link to={`/tienda/producto/${product.id+1}`}><FontAwesomeIcon icon={faArrowRight} /> </Link>
-                    </div> */}
+           
+                    <div key={productData.id} className="single-product" >
+                    <img className="product-imagen"src={`../../src/assets/images/tienda/${productData.img}`} alt="" />
                     <div>
-                    <div className="titulo__formato titulo-producto"><h1>{product.nombreProducto}</h1></div>
+                    <div className="titulo__formato titulo-producto"><h1>{productData.nombreProducto}</h1></div>
                     <div className="product-content">
-                    <p>{product.descripcion}</p>
-                    <span>Precio: {Math.floor(product.valor/usd)} USD - ${product.valor} CLP. </span>
+                    <p>{productData.descripcion}</p>
+                    <span>Precio: {Math.floor(productData.valor/usd)} USD - ${productData.valor} CLP. </span>
                     <div className="product-select">
-                    <ItemCount product={product}/>
-                    <button type="button" className="boton-principal btn-product">Comprar</button>
+                    <ItemCount product={productData}/>
                     </div>
                     </div>
                 </div>
                   </div>
-                )
-              })
-            }
+                
+            
         </div>
       )
 }
