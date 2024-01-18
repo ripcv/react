@@ -1,5 +1,4 @@
 import './Home.css'
-import { useGetProducts } from "../hooks/useProducts"
 import { Link } from 'react-router-dom';
 
 /**
@@ -7,7 +6,6 @@ import { Link } from 'react-router-dom';
  */
 function Home() {
 
-  const { productsData } = useGetProducts();
 
   return (
     <div>

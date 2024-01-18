@@ -14,33 +14,30 @@ import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons"; *
  */
 
 const Producto = () => {
-    const { usd } = useExchange();
-    const { id } = useParams();
-    const { productData } = useGetProductsByID("products",id)
+  const { usd } = useExchange();
+  const { id } = useParams();
+  const { productData } = useGetProductsByID("products", id)
 
+  return (
 
-    return (
-
-        <div  className="product-page">
-         
-           
-                    <div key={productData.id} className="single-product" >
-                    <img className="product-imagen"src={`../../src/assets/images/tienda/${productData.img}`} alt="" />
-                    <div>
-                    <div className="titulo__formato titulo-producto"><h1>{productData.nombreProducto}</h1></div>
-                    <div className="product-content">
-                    <p>{productData.descripcion}</p>
-                    <span>Precio: {Math.floor(productData.valor/usd)} USD - ${productData.valor} CLP. </span>
-                    <div className="product-select">
-                    <ItemCount product={productData}/>
-                    </div>
-                    </div>
-                </div>
-                  </div>
-                
-            
+    <div className="product-page">
+      <div key={productData.id} className="single-product" >
+        <img className="product-imagen" src={`../../src/assets/images/tienda/${productData.img}`} alt="" />
+        <div>
+          <div className="titulo__formato titulo-producto"><h1>{productData.nombreProducto}</h1></div>
+          <div className="product-content">
+            <p>{productData.descripcion}</p>
+            <span>Precio: {Math.floor(productData.valor / usd)} USD - ${productData.valor} CLP. </span>
+            <div className="product-select">
+              <ItemCount product={productData} />
+            </div>
+          </div>
         </div>
-      )
+      </div>
+
+
+    </div>
+  )
 }
 
 export default Producto
