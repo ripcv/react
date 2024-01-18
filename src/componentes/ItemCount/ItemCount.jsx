@@ -5,7 +5,7 @@ function ItemCount(product) {
 
   const [cantidad, setCantidad] = useState(1);
 
-  const {count, setCount} = useContext(CartContext);
+  const {productosCarrito, setCarrito} = useContext(CartContext);
 
   const handleRestar = () => {
     cantidad > 1 && setCantidad(cantidad - 1)
@@ -17,23 +17,21 @@ function ItemCount(product) {
   }
   
  const handleProductAddCart = () => {
+  console.log("aprete el boton")
     const newProduct = {
       id: product.product.id,
       quantity: cantidad,
     };
-    if( count.length  === 0){
-    setCount([newProduct]);
+    if(productosCarrito.length=== 0){
+      setCarrito([newProduct])
+      console.log(productosCarrito);
+    }else if(productosCarrito.find(producto => producto.id === newProduct.id)){
+      const updatedCart = productosCarrito.map(item => 
+        item.id === newProduct.id ? { ...item, quantity: item.quantity + cantidad } : item
+      );
+      setCarrito(updatedCart);
     }else{
-      count.map((item) => {
-        if(item.id === product.product.id){
-          return{
-            ...item,
-            quantity: item.quantity + cantidad,
-          };
-        }else{
-          setCount([...count, newProduct]);
-        }
-      })
+      setCarrito([...productosCarrito,newProduct]);
     }
     setCantidad(1);
   }; 
