@@ -10,7 +10,6 @@ function Category() {
     const { pathname } = location;
     const {id} = useParams();
     const useProductsHook = pathname.includes("/categoria") ? useGetProductsByCategory : useGetProducts;
-
     const { productsData } = useProductsHook(id);
 
   return (
