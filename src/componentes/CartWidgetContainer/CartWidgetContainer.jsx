@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom'
 const CartWidgetContainer = () => {
   const { productosCarrito } = useContext(CartContext);
   const totalQuantity = productosCarrito.reduce((total, item)=> total + item.quantity, 0);
- console.log(productosCarrito)
   return (
     <div id="carrito" className="carrito">
     <div className="hide" id="mensaje"></div>
