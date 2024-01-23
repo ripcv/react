@@ -9,7 +9,7 @@
 }
 
 .tienda {
-  background-image: linear-gradient(rgb(132, 97, 134), rgb(152, 59, 168));
+  background-image: linear-gradient(rgb(191, 145, 193), rgb(152, 59, 168));
     min-height: 88vh;
      margin-top: 121px !important;
     display: flex;

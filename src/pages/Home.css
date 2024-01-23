@@ -1,6 +1,6 @@
 main {
-    background-image: linear-gradient(rgb(132, 97, 134), rgb(152, 59, 168));
-    min-height: 88vh;
+    background-image: linear-gradient(rgb(248, 190, 250), rgb(113, 17, 130));
+    min-height: 50vh;
     display: flex;
     flex-direction: column;
   }
