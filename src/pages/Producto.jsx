@@ -1,13 +1,8 @@
 import { useExchange } from "../hooks/useExchange";
 import { useGetProductsByID } from "../hooks/useProducts";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import './Producto.css'
 import ItemCount from "../componentes/ItemCount/ItemCount";
-
-/* 
-posible futura funcionalidad
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons"; */
 
 /**
  * @description Renderiza producto por ID

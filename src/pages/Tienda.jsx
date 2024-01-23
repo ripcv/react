@@ -8,8 +8,6 @@ import Category from "./Categorias";
  */
 function Tienda() {
 
-  /* const { productsData } = useGetProducts(); */
-
   return (
     <Category />
   )

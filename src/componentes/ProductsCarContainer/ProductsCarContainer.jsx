@@ -2,13 +2,20 @@ import React, { useContext, useState, useEffect } from 'react';
 import { CartContext } from '../../context/CartContext';
 import { useGetProductsByID } from '../../hooks/useProducts';
 
-const divisa = '$';
+/**
+ * 
+ * @returns Se muestran los productos del carrito y se calcula el total
+ */
 
 const ProductsCarContainer = () => {
   const [subTotal, setSubTotal] = useState(0);
   const [iva, setIva] = useState(0);
   const { productosCarrito } = useContext(CartContext);
+  const divisa = '$';
 
+  /*Para mostrar el detalle del carrito con sus respectivos valores se crea un array nuevo en el cual se almacena
+ la informacion de cada producto obtenida desde firebase.
+ */
   const detalleCarrito = productosCarrito.map((producto) => {
     const { productData } = useGetProductsByID("products", producto.id);
     const { nombreProducto, valor } = productData;
@@ -22,7 +29,7 @@ const ProductsCarContainer = () => {
     };
   });
 
-
+// Se calcula el subtotal y su respectivo Iva por cada producto que tenga el carrito.
   useEffect(() => {
     const total = detalleCarrito.reduce((totalPrevio, { total }) => totalPrevio + total, 0);
     setSubTotal(total)
