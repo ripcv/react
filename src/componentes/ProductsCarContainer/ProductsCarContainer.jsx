@@ -2,16 +2,36 @@ import React, { useContext, useState, useEffect } from 'react';
 import { CartContext } from '../../context/CartContext';
 import { useGetProductsByID } from '../../hooks/useProducts';
 
+const divisa = '$';
+
 const ProductsCarContainer = () => {
   const [subTotal, setSubTotal] = useState(0);
+  const [iva, setIva] = useState(0);
   const { productosCarrito } = useContext(CartContext);
 
-   const handleChange = (()=> {
-    console.log("cambio la cantidad")
-   })
+  const detalleCarrito = productosCarrito.map((producto) => {
+    const { productData } = useGetProductsByID("products", producto.id);
+    const { nombreProducto, valor } = productData;
+    const total = parseInt(valor * producto.quantity);
+
+    return {
+      ...producto,
+      nombre: nombreProducto,
+      valor: parseInt(valor),
+      total,
+    };
+  });
+
+
+  useEffect(() => {
+    const total = detalleCarrito.reduce((totalPrevio, { total }) => totalPrevio + total, 0);
+    setSubTotal(total)
+    const IVA = subTotal * 0.19
+    setIva(IVA)
+  }, [detalleCarrito]);
 
  
-  
+
   return (
     <div className="carro">
       <div className="productos">
@@ -27,40 +47,43 @@ const ProductsCarContainer = () => {
               </tr>
             </thead>
             <tbody>
-              {productosCarrito.map((producto) => {
-                const detalleProducto = useGetProductsByID("products", producto.id);
-                const total = parseInt(detalleProducto.productData.valor * producto.quantity);
-                
-                return (
-                  <tr key={producto.id}>
-                    <td scope="col">{detalleProducto.productData.nombreProducto}</td>
-                    <td scope="col">
-                    <input
-                        className="cantidad-input"
-                        name="cantidad"
-                        type="number"
-                        value={producto.quantity}
-                        data-productid={producto.id}
-                        onChange={handleChange}
-                      />
-                    </td>
-                    <td scope="col">{detalleProducto.productData.valor}</td>
-                    <td scope="col" id={producto.id}>
-                      {total}
-                    </td>
-                  </tr>
-                );
-
-             
-                })}
+              {productosCarrito.length > 0 ? (
+                detalleCarrito.map((producto) => {
+                  if (producto.total) {
+                    return (
+                      <tr key={producto.id}>
+                        <td scope="col">{producto.nombre}</td>
+                        <td scope="col">
+                          <input
+                            className="cantidad-input"
+                            name="cantidad"
+                            type="number"
+                            value={producto.quantity}
+                            data-productid={producto.id}
+                          />
+                        </td>
+                        <td scope="col">{divisa+producto.valor}</td>
+                        <td scope="col" id={producto.id}>
+                          {divisa+producto.total}
+                        </td>
+                      </tr>
+                    );
+                  }
+                })
+              ) : (
+                <tr>
+                  <td colSpan="4">El carrito está vacío</td>
+                </tr>
+              )}
             </tbody>
+
           </table>
         </div>
         <div className="total-container" id="total-container">
-          <div className="total-item">Subtotal: <span id="subtotal">{subTotal}</span></div>
-          <div className="total-item">IVA: <span id="iva">0</span></div>
-          <div className="total-item">TOTAL: <span id="total">0</span></div>
-          <button type="button" id="finalizarcompra" className="boton-principal">
+          <div className="total-item">Subtotal: <span id="subtotal">{subTotal ? divisa+subTotal : 0}</span></div>
+          <div className="total-item">IVA: <span id="iva">{iva ? divisa+iva : 0}</span></div>
+          <div className="total-item">TOTAL: <span id="total">{subTotal ? divisa+(subTotal + iva) : 0}</span></div>
+          <button type="submit" id="finalizarcompra" className="boton-principal">
             Finalizar Compra
           </button>
         </div>
