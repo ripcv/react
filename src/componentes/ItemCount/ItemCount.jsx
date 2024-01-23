@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './ItemCount.css'
 import { CartContext } from '../../context/CartContext';
 function ItemCount(product) {
@@ -8,16 +8,12 @@ function ItemCount(product) {
   const { productosCarrito, setCarrito } = useContext(CartContext);
 
   const cantidadDisponible = (productosCarrito, productId, stock) => {
-
-    return stock - productosCarrito.reduce((total, item) => {
-      if (item.id === productId) {
-        return total + item.quantity;
-      }
-      return total;
-    }, 0);
-
+    const cantidadEnCarrito = productosCarrito
+      .filter(item => item.id === productId)
+      .reduce((total, item) => total + item.quantity, 0);
+  
+    return stock - cantidadEnCarrito;
   };
-
   const stock = cantidadDisponible(productosCarrito, product.product.id, product.product.stock);
 
 
@@ -26,10 +22,9 @@ function ItemCount(product) {
   }
 
   const handleSumar = () => {
-
-    if (stock > 0) {
+    if (stock > cantidad) {
       setCantidad(cantidad => (cantidad < stock ? cantidad + 1 : stock));
-    } else {
+    } else{
       alert('Ha alcanzado el límite disponible');
     }
   };
