@@ -30,7 +30,7 @@ const ProductsCarContainer = () => {
     setIva(IVA)
   }, [detalleCarrito]);
 
- 
+
 
   return (
     <div className="carro">
@@ -62,9 +62,9 @@ const ProductsCarContainer = () => {
                             data-productid={producto.id}
                           />
                         </td>
-                        <td scope="col">{divisa+producto.valor}</td>
+                        <td scope="col">{divisa + producto.valor}</td>
                         <td scope="col" id={producto.id}>
-                          {divisa+producto.total}
+                          {divisa + producto.total}
                         </td>
                       </tr>
                     );
@@ -80,9 +80,9 @@ const ProductsCarContainer = () => {
           </table>
         </div>
         <div className="total-container" id="total-container">
-          <div className="total-item">Subtotal: <span id="subtotal">{subTotal ? divisa+subTotal : 0}</span></div>
-          <div className="total-item">IVA: <span id="iva">{iva ? divisa+iva : 0}</span></div>
-          <div className="total-item">TOTAL: <span id="total">{subTotal ? divisa+(subTotal + iva) : 0}</span></div>
+          <div className="total-item">Subtotal: <span id="subtotal">{subTotal ? divisa + subTotal : 0}</span></div>
+          <div className="total-item">IVA: <span id="iva">{iva ? divisa + iva : 0}</span></div>
+          <div className="total-item">TOTAL: <span id="total">{subTotal ? divisa + (subTotal + iva) : 0}</span></div>
           <button type="submit" id="finalizarcompra" className="boton-principal">
             Finalizar Compra
           </button>

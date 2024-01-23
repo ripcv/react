@@ -11,7 +11,7 @@ function Tienda() {
   /* const { productsData } = useGetProducts(); */
 
   return (
-      <Category />
+    <Category />
   )
 }
 

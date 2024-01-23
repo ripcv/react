@@ -18,17 +18,6 @@ const NavBarComponent = () => {
             <ul>
                 <li>  <Link to={'/'}>Inicio</Link></li>
                 <li>  <Link to={'/tienda'}>Tienda</Link></li>
-                {/* <li className="dropdown">
-                    <a className="dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Categorias
-                    </a>
-                    <div className="dropdown-menu bg" aria-labelledby="navbarDropdown">
-                        <Link to={'/category/producto.category'}> Categoria </Link>
-                        <a className="dropdown-item" href="./videos.html">Videos</a>
-                    </div>
-                </li> */}
-                <li id="logout"> <Link to={'/logout'}> Log-Out</Link></li>
             </ul>
 
             <CartWidgetContainer />

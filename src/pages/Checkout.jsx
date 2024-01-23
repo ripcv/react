@@ -4,9 +4,6 @@ import { useContext, useState } from 'react';
 import { CartContext } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 
-
-
-
 const Checkout = () => {
    const { productosCarrito, setCarrito } = useContext(CartContext);
     const [nombre, setNombre] = useState('');
