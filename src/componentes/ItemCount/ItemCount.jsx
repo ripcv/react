@@ -1,17 +1,25 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './ItemCount.css'
 import { CartContext } from '../../context/CartContext';
+import { Toast, NotificacionesContainer } from '../NotificacionesContainer/NotificacionesContainer';
+
+
 function ItemCount(product) {
+
 
   const [cantidad, setCantidad] = useState(1);
 
   const { productosCarrito, setCarrito } = useContext(CartContext);
 
+  /* Se emula la rebaja de stock del producto al agregar un producto al carro, 
+ esto con la finalidad de agotar productos o evitar que agreguen más del stock disponible si este ya se encuentra agregado.
+ */
+
   const cantidadDisponible = (productosCarrito, productId, stock) => {
     const cantidadEnCarrito = productosCarrito
       .filter(item => item.id === productId)
       .reduce((total, item) => total + item.quantity, 0);
-  
+
     return stock - cantidadEnCarrito;
   };
   const stock = cantidadDisponible(productosCarrito, product.product.id, product.product.stock);
@@ -24,8 +32,8 @@ function ItemCount(product) {
   const handleSumar = () => {
     if (stock > cantidad) {
       setCantidad(cantidad => (cantidad < stock ? cantidad + 1 : stock));
-    } else{
-      alert('Ha alcanzado el límite disponible');
+    } else {
+      Toast.warn("Stock Maximo Disponible")
     }
   };
 
@@ -50,6 +58,7 @@ function ItemCount(product) {
       setCarrito([...productosCarrito, newProduct]);
     }
     setCantidad(1);
+    Toast.success('Producto Agregado')
   };
 
   const isAgotado = () => {
@@ -65,6 +74,7 @@ function ItemCount(product) {
           <button className='boton-principal btn-cantidad' onClick={handleSumar}> + </button>
         </div>
         <button onClick={handleProductAddCart} type="button" className="boton-principal btn-product">Comprar </button>
+        <NotificacionesContainer/>
       </div>
       <div>
         <h3 style={isAgotado() ? {} : { display: 'none' }}>Producto Agotado</h3>
